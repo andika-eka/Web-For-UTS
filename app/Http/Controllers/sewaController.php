@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\sewa;
 
 class sewaController extends Controller
 {
@@ -13,7 +14,11 @@ class sewaController extends Controller
      */
     public function index()
     {
-        //
+        $title = "daftar sewa";
+        $data = sewa::all();
+        return view('dashboard.sewa')
+        ->with('title', $title)
+        ->with("sewa", $data);
     }
 
     /**
@@ -45,7 +50,7 @@ class sewaController extends Controller
      */
     public function show($id)
     {
-        //
+        return sewa::find($id);
     }
 
     /**

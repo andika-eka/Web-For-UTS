@@ -22,7 +22,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboardx', function () 
 })->name('dashboard');
 
 Route::get('/dashboard',[PagesController::class, 'dashboard']);
-Route::resource('sewa', PagesController::class);
+Route::resource('sewa', SewaController::class);
 
 /*
 +--------+-----------+----------------------------------+---------------------------------+---------------------------------------------------------------------------------+-----------------------------------------------------------+
