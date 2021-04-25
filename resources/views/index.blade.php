@@ -14,7 +14,7 @@
                     <ul class="navbar-nav text-uppercase ml-auto">
                        
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">hunian</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#pesan">booking</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#pesan">booking</a></li> -->
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#staf">staf</a></li>
 
                     </ul>
@@ -26,12 +26,16 @@
 <!-- Masthead-->
 <header class="masthead">
     <div class="container">
-        <div class="masthead-subheading">Welcome To Our Studio!</div>
-        <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
+        
         @if (Route::has('login'))
                 @auth
+                <div class="masthead-subheading" style="text-shadow: 2px 2px black;">Instant kos</div>
+                <div class="masthead-heading text-uppercase"  style="text-shadow: 2px 2px black;">Halo, {{ Auth::user()->name }}</div>
                     <a class="btn btn-primary btn-xl text-uppercase " href="{{ url('/dashboardx') }}">Dashboard</a>
+                    
                 @else
+                <div class="masthead-subheading" style="text-shadow: 2px 2px black;">Instant kos</div>
+                <div class="masthead-heading text-uppercase"  style="text-shadow: 2px 2px black;">selamat datang</div>
                     <a class="btn btn-primary btn-xl text-uppercase " href={{ route('login') }}>Log in</a>
                     @if (Route::has('register'))
                     <a class="btn btn-primary btn-xl text-uppercase " href="{{ route('register') }}">Register</a>
@@ -45,8 +49,8 @@
 <section class="page-section bg-light" id="portfolio">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Portfolio</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 class="section-heading text-uppercase">pilihan unit</h2>
+                    <h3 class="section-subheading text-muted">sesuaikan dengan selera mu</h3>
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-sm-6 mb-4">
@@ -58,8 +62,8 @@
                                 <img class="img-fluid" src="assets/img/portfolio/01-thumbnail.jpg" alt="" />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Threads</div>
-                                <div class="portfolio-caption-subheading text-muted">Illustration</div>
+                                <div class="portfolio-caption-heading">Tipe A</div>
+                                
                             </div>
                         </div>
                     </div>
@@ -72,8 +76,8 @@
                                 <img class="img-fluid" src="assets/img/portfolio/02-thumbnail.jpg" alt="" />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Explore</div>
-                                <div class="portfolio-caption-subheading text-muted">Graphic Design</div>
+                                <div class="portfolio-caption-heading">Tipe B</div>
+                               
                             </div>
                         </div>
                     </div>
@@ -86,8 +90,8 @@
                                 <img class="img-fluid" src="assets/img/portfolio/03-thumbnail.jpg" alt="" />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Finish</div>
-                                <div class="portfolio-caption-subheading text-muted">Identity</div>
+                                <div class="portfolio-caption-heading">Tipe C</div>
+                                
                             </div>
                         </div>
                     </div>
@@ -100,8 +104,8 @@
                                 <img class="img-fluid" src="assets/img/portfolio/04-thumbnail.jpg" alt="" />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Lines</div>
-                                <div class="portfolio-caption-subheading text-muted">Branding</div>
+                                <div class="portfolio-caption-heading">Tipe D</div>
+                                
                             </div>
                         </div>
                     </div>
@@ -114,8 +118,8 @@
                                 <img class="img-fluid" src="assets/img/portfolio/05-thumbnail.jpg" alt="" />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Southwest</div>
-                                <div class="portfolio-caption-subheading text-muted">Website Design</div>
+                                <div class="portfolio-caption-heading">Tipe E</div>
+                             
                             </div>
                         </div>
                     </div>
@@ -128,15 +132,15 @@
                                 <img class="img-fluid" src="assets/img/portfolio/06-thumbnail.jpg" alt="" />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Window</div>
-                                <div class="portfolio-caption-subheading text-muted">Photography</div>
+                                <div class="portfolio-caption-heading">Tipe F</div>
+                                
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-<!-- About-->
+<!-- About
 <section class="page-section" id="pesan">
     <div class="container">
         <div class="text-center">
@@ -217,52 +221,40 @@
             </li>
         </ul>
     </div>
-</section>
+</section> -->
 <!-- Team-->
 <section class="page-section bg-light" id="staf">
     <div class="container">
         <div class="text-center">
-            <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            <h2 class="section-heading text-uppercase">Staf kami</h2>
+            <h3 class="section-subheading text-muted">memberikan pelayanan sepenuh hati</h3>
         </div>
         <div class="row">
             <div class="col-lg-4">
                 <div class="team-member">
                     <img class="mx-auto rounded-circle" src="assets/img/team/1.jpg" alt="" />
-                    <h4>Kay Garland</h4>
-                    <p class="text-muted">Lead Designer</p>
-                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                    <h4>Sari</h4>
+                    <p class="text-muted">administrasi</p>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="team-member">
                     <img class="mx-auto rounded-circle" src="assets/img/team/2.jpg" alt="" />
-                    <h4>Larry Parker</h4>
-                    <p class="text-muted">Lead Marketer</p>
-                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                    <h4>Dadang</h4>
+                    <p class="text-muted">security</p>
+                   
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="team-member">
                     <img class="mx-auto rounded-circle" src="assets/img/team/3.jpg" alt="" />
-                    <h4>Diana Petersen</h4>
-                    <p class="text-muted">Lead Developer</p>
-                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                    <h4>Mutia</h4>
+                    <p class="text-muted">pengawas</p>
+                    
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-8 mx-auto text-center">
-                <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque,
-                    laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
-            </div>
-        </div>
+       
     </div>
 </section>
 
@@ -282,21 +274,18 @@
                     <div class="col-lg-8">
                         <div class="modal-body">
                             <!-- Project Details Go Here-->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                            <h2 class="text-uppercase">Tipe A</h2>
+                            <p class="item-intro text-muted">Rp1.500.000</p>
                             <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/01-full.jpg" alt="" />
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
-                                repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
-                                nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
+                            <p></p>
+                            <!-- <ul class="list-inline">
                                 <li>Date: January 2020</li>
                                 <li>Client: Threads</li>
                                 <li>Category: Illustration</li>
-                            </ul>
+                            </ul> -->
                             <button class="btn btn-primary" data-dismiss="modal" type="button">
                                 <i class="fas fa-times mr-1"></i>
-                                Close Project
+                                Close 
                             </button>
                         </div>
                     </div>
@@ -316,21 +305,18 @@
                     <div class="col-lg-8">
                         <div class="modal-body">
                             <!-- Project Details Go Here-->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                            <h2 class="text-uppercase">Tipe B</h2>
+                            <p class="item-intro text-muted">Rp1.200.000</p>
                             <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/02-full.jpg" alt="" />
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
-                                repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
-                                nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
+                            <p></p>
+                            <!-- <ul class="list-inline">
                                 <li>Date: January 2020</li>
                                 <li>Client: Explore</li>
                                 <li>Category: Graphic Design</li>
-                            </ul>
+                            </ul> -->
                             <button class="btn btn-primary" data-dismiss="modal" type="button">
                                 <i class="fas fa-times mr-1"></i>
-                                Close Project
+                                Close 
                             </button>
                         </div>
                     </div>
@@ -350,21 +336,18 @@
                     <div class="col-lg-8">
                         <div class="modal-body">
                             <!-- Project Details Go Here-->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                            <h2 class="text-uppercase">Tipe c</h2>
+                            <p class="item-intro text-muted">Rp1.000.000</p>
                             <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/03-full.jpg" alt="" />
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
-                                repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
-                                nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
+                            <p></p>
+                            <!-- <ul class="list-inline">
                                 <li>Date: January 2020</li>
-                                <li>Client: Finish</li>
-                                <li>Category: Identity</li>
-                            </ul>
+                                <li>Client: Explore</li>
+                                <li>Category: Graphic Design</li>
+                            </ul> -->
                             <button class="btn btn-primary" data-dismiss="modal" type="button">
                                 <i class="fas fa-times mr-1"></i>
-                                Close Project
+                                Close 
                             </button>
                         </div>
                     </div>
@@ -384,21 +367,18 @@
                     <div class="col-lg-8">
                         <div class="modal-body">
                             <!-- Project Details Go Here-->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                            <h2 class="text-uppercase">Tipe D</h2>
+                            <p class="item-intro text-muted">Rp 800.000</p>
                             <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/04-full.jpg" alt="" />
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
-                                repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
-                                nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
+                            <p></p>
+                            <!-- <ul class="list-inline">
                                 <li>Date: January 2020</li>
-                                <li>Client: Lines</li>
-                                <li>Category: Branding</li>
-                            </ul>
+                                <li>Client: Explore</li>
+                                <li>Category: Graphic Design</li>
+                            </ul> -->
                             <button class="btn btn-primary" data-dismiss="modal" type="button">
                                 <i class="fas fa-times mr-1"></i>
-                                Close Project
+                                Close 
                             </button>
                         </div>
                     </div>
@@ -418,21 +398,18 @@
                     <div class="col-lg-8">
                         <div class="modal-body">
                             <!-- Project Details Go Here-->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                            <h2 class="text-uppercase">Tipe E</h2>
+                            <p class="item-intro text-muted">Rp 500.000</p>
                             <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/05-full.jpg" alt="" />
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
-                                repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
-                                nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
+                            <p></p>
+                            <!-- <ul class="list-inline">
                                 <li>Date: January 2020</li>
-                                <li>Client: Southwest</li>
-                                <li>Category: Website Design</li>
-                            </ul>
+                                <li>Client: Explore</li>
+                                <li>Category: Graphic Design</li>
+                            </ul> -->
                             <button class="btn btn-primary" data-dismiss="modal" type="button">
                                 <i class="fas fa-times mr-1"></i>
-                                Close Project
+                                Close 
                             </button>
                         </div>
                     </div>
@@ -452,21 +429,18 @@
                     <div class="col-lg-8">
                         <div class="modal-body">
                             <!-- Project Details Go Here-->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                            <h2 class="text-uppercase">Tipe F</h2>
+                            <p class="item-intro text-muted">Rp 200.000</p>
                             <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/06-full.jpg" alt="" />
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
-                                repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
-                                nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
+                            <p></p>
+                            <!-- <ul class="list-inline">
                                 <li>Date: January 2020</li>
-                                <li>Client: Window</li>
-                                <li>Category: Photography</li>
-                            </ul>
+                                <li>Client: Explore</li>
+                                <li>Category: Graphic Design</li>
+                            </ul> -->
                             <button class="btn btn-primary" data-dismiss="modal" type="button">
                                 <i class="fas fa-times mr-1"></i>
-                                Close Project
+                                Close 
                             </button>
                         </div>
                     </div>
