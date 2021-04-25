@@ -90,8 +90,17 @@ class sewaController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+        $data = sewa::find($id);
+        if(!$data){
+            abort(404);
+        }
+        $title = $data->nama;
+        return view('dashboard.edit')
+        ->with('title', $title)
+        ->with('sewa', $data) ;
     }
+    
 
     /**
      * Update the specified resource in storage.
@@ -103,6 +112,30 @@ class sewaController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $Sewa = sewa::find($id);
+        $this->validate($request, [
+            'nama' => 'required',
+            'NIK' => 'required',
+            'tlp' => 'required',
+            'no_unit' => 'required',
+            'dari' => 'required',
+            'sampai' => 'required',
+            'harga' => 'required'
+        ]);
+
+        $Sewa->nama = $request->nama;
+        $Sewa->NIK = $request->NIK;
+        $Sewa->tlp = $request->tlp;
+        $Sewa->email = $request->email;
+        $Sewa->dari = $request->dari;
+        $Sewa->sampai = $request->sampai;
+        $Sewa->no_unit = $request->no_unit;
+        $Sewa->harga = $request->harga;
+        $Sewa->keterangan = $request->keterangan;
+        $Sewa->save();    
+
+        return redirect('/sewa')->with('success', 'data saved');
+
     }
 
     /**
@@ -113,6 +146,9 @@ class sewaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = sewa::find($id);       //cari id yang dipencet
+        $data-> delete();                  //delete id tersebut
+
+        return redirect('/sewa')->with('success', 'data deleted');
     }
 }

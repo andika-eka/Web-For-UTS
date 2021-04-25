@@ -16,8 +16,10 @@ class PagesController extends Controller
     public function dashboard(){
         $title = 'dashboard';
         $data = sewa::all();
+        $rev = sewa::sum('harga');
         return view('dashboard/index')
         ->with('title', $title) 
-        ->with("sewa", $data);
+        ->with("sewa", $data)
+        ->with("rev", $rev);
     }
 }
