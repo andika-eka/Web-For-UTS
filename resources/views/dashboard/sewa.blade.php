@@ -9,7 +9,7 @@
                 daftar sewa
             </div>
             <div class="card-body">
-            @if(count($sewa)>1)
+            @if(count($sewa)>0)
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
@@ -18,8 +18,7 @@
                                 <th>no unit</th>
                                 <th>dari</th>
                                 <th>sampai</th>
-                                <th>email</th>
-                                <th>tlp</th>
+                                <th>harga</th>
                                 <th>-</th>
                             </tr>
                         </thead>
@@ -29,8 +28,7 @@
                                 <th>no unit</th>
                                 <th>dari</th>
                                 <th>sampai</th>
-                                <th>email</th>
-                                <th>tlp</th>
+                                <th>harga</th>
                                 <th>-</th>
                             </tr>
                         </tfoot>
@@ -41,8 +39,7 @@
                                 <td>{{$Sewa->no_unit}}</td>
                                 <td>{{$Sewa->dari}}</td>
                                 <td>{{$Sewa->sampai}}</td>
-                                <td>{{$Sewa->email}}</td>
-                                <td>{{$Sewa->tlp}}</td>
+                                <td>Rp{{$Sewa->harga}}</td>
                                 <td><a class="badge rounded-pill bg-primary" href="sewa/{{$Sewa->id}} ">details</a></td>
                             </tr>
                          @endforeach   

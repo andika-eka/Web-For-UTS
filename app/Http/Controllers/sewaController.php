@@ -29,6 +29,8 @@ class sewaController extends Controller
     public function create()
     {
         //
+        $title = 'data entry';
+        return view('dashboard.create')->with('title', $title);
     }
 
     /**
@@ -40,6 +42,28 @@ class sewaController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, [
+            'nama' => 'required',
+            'NIK' => 'required',
+            'tlp' => 'required',
+            'no_unit' => 'required',
+            'dari' => 'required',
+            'sampai' => 'required',
+            'harga' => 'required'
+        ]);
+        sewa::create([
+            'nama' => request('nama'),
+            'NIK' => request('NIK'),
+            'tlp' => request('tlp'),
+            'email' => request('email'),
+            'dari' => request('dari'),
+            'sampai' => request('dari'),
+            'no_unit' => request('no_unit'),
+            'harga' => request('harga'),
+            
+            'keterangan' => request('keterangan'),
+        ]);
+        return redirect('/sewa')->with('success', 'data saved');
     }
 
     /**
@@ -50,7 +74,12 @@ class sewaController extends Controller
      */
     public function show($id)
     {
-        return sewa::find($id);
+        
+        $data = sewa::find($id);
+        $title = $data->nama;
+        return view('dashboard.detail')
+        ->with('title', $title)
+        ->with("sewa", $data);
     }
 
     /**

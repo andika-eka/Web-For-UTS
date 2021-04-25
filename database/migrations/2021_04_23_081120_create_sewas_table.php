@@ -17,12 +17,15 @@ class CreateSewasTable extends Migration
             $table->id();
             $table->string('nama', 100);
             $table->string('NIK', 16);
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->string('tlp',15);
 
             $table->integer('no_unit');
+            $table->decimal('harga',10,2);
             $table->date('dari');
             $table->date('sampai');
+
+            $table->text('keterangan')->nullable();
             $table->timestamps();
         });
     }

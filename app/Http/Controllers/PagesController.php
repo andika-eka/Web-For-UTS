@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\sewa;
 
 class PagesController extends Controller
 {
@@ -14,7 +15,9 @@ class PagesController extends Controller
 
     public function dashboard(){
         $title = 'dashboard';
+        $data = sewa::all();
         return view('dashboard/index')
-        ->with('title', $title);
+        ->with('title', $title) 
+        ->with("sewa", $data);
     }
 }
