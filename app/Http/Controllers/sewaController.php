@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\sewa;
-
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 class sewaController extends Controller
 {
     /**
@@ -60,6 +61,8 @@ class sewaController extends Controller
             'sampai' => request('dari'),
             'no_unit' => request('no_unit'),
             'harga' => request('harga'),
+            'user_id' =>Auth::id(),
+            'update_user_id' =>Auth::id(),
             
             'keterangan' => request('keterangan'),
         ]);
@@ -76,10 +79,16 @@ class sewaController extends Controller
     {
         
         $data = sewa::find($id);
+
+        $user = user::find($data->user_id);
+        $userUpdate = user::find($data->update_user_id);
+
         $title = $data->nama;
         return view('dashboard.detail')
         ->with('title', $title)
-        ->with("sewa", $data);
+        ->with("sewa", $data)
+        ->with('user', $user)
+        ->with('update', $userUpdate);
     }
 
     /**
@@ -132,6 +141,7 @@ class sewaController extends Controller
         $Sewa->no_unit = $request->no_unit;
         $Sewa->harga = $request->harga;
         $Sewa->keterangan = $request->keterangan;
+        $Sewa->update_user_id = Auth::id();
         $Sewa->save();    
 
         return redirect('/sewa')->with('success', 'data saved');

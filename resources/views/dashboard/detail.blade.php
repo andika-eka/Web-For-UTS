@@ -8,6 +8,26 @@
                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                     <div class="card-header">
                         <h3 class="font-weight-light my-4">No unit {{$sewa->no_unit}}</h3>
+                        <table >
+                            <tr>
+                                <td>
+                                    <h6>dibuat oleh</h6>
+                                </td>
+                                <td>
+                                    <p>&ensp;: {{$user->name}}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                
+                                <td>
+                                    <h6>terakhir diubah oleh</h6>
+                                </td>
+                                <td>
+                                    <p> &ensp;: {{$update->name}}</p>
+                                </td>
+                            </tr>
+                        </table>
+                        
                     </div>
                     <div class="card-body">
                         <h4>indenfitas</h4>

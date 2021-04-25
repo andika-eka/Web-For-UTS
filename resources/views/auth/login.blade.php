@@ -25,11 +25,9 @@
                                     <h3 class="text-center font-weight-light my-4">Login</h3>
                                 </div>
                                 <div class="card-body">
-                                    @if (session('status'))
-                                    <div class="mb-4 font-medium text-sm text-green-600">
-                                        {{ session('status') }}
-                                    </div>
-                                    @endif
+                                <div class="container">
+                @include('inc.messages')
+            </div>
                                     <form method="POST" action="{{ route('login') }}">
                                         @csrf
                                         <div class="form-group">
