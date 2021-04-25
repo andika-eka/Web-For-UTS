@@ -9,4 +9,7 @@ class sewa extends Model
 {
     use HasFactory;
     protected $fillable = ['nama', 'NIK', 'email', 'tlp', 'no_unit','harga','dari','sampai','keterangan'];
+    public function User(){
+        return $this->belongsTo('App/Models/User');
+    }
 }
