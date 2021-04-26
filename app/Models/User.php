@@ -60,6 +60,9 @@ class User extends Authenticatable
     ];
 
     public function sewa(){
-        $this->hasMany('App/Models/sewa');
+        return $this->hasMany(sewa::class);
+    }
+    public function bayar(){
+       return $this->hasMany(sewa::class);
     }
 }

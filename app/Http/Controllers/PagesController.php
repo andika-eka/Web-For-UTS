@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\sewa;
+use Carbon\Carbon;
+
 
 class PagesController extends Controller
 {
@@ -16,7 +18,11 @@ class PagesController extends Controller
     public function dashboard(){
         $title = 'dashboard';
         $data = sewa::all();
-        $rev = sewa::sum('harga');
+        
+        $belumSelesai = sewa::whereDate('sampai','>', Carbon::now())->sum('harga');
+        $belumMulai = sewa::whereDate('dari','>', Carbon::now())->sum('harga');
+        $rev = $belumSelesai - $belumMulai;
+
         return view('dashboard/index')
         ->with('title', $title) 
         ->with("sewa", $data)

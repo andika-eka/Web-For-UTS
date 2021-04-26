@@ -14,7 +14,7 @@
                                     <h6>dibuat oleh</h6>
                                 </td>
                                 <td>
-                                    <p>&ensp;: {{$user->name}}</p>
+                                    <b>&ensp;: {{$user->name}}</b>
                                 </td>
                             </tr>
                             <tr>
@@ -23,7 +23,7 @@
                                     <h6>terakhir diubah oleh</h6>
                                 </td>
                                 <td>
-                                    <p> &ensp;: {{$update->name}}</p>
+                                    <b> &ensp;: {{$update->name}}</b>
                                 </td>
                             </tr>
                         </table>
@@ -96,7 +96,7 @@
                                     <h6>harga</h6>
                                 </td>
                                 <td>
-                                    <h6>: {{$sewa->harga}}</h6>
+                                    <h6>: Rp. {{$sewa->harga}}</h6>
                                 </td>
                             </tr>
                         </table>

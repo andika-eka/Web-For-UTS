@@ -23,7 +23,7 @@
                 <div class="card bg-success mb-3" style="max-width: 18rem; height :200px;">
                     <div class="card-header">pendapatan</div>
                     <div class="card-body text-center" >
-                        <h2 class="card-title ">Rp{{$rev}}</h2>
+                        <h2 class="card-title ">Rp.{{$rev}}</h2>
                     </div>
                 </div>
             </div>

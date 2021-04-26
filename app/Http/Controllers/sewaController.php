@@ -48,7 +48,7 @@ class sewaController extends Controller
             'NIK' => 'required',
             'tlp' => 'required',
             'no_unit' => 'required',
-            'dari' => 'required',
+            'dari' => 'required|before:sampai',
             'sampai' => 'required',
             'harga' => 'required'
         ]);
@@ -58,7 +58,7 @@ class sewaController extends Controller
             'tlp' => request('tlp'),
             'email' => request('email'),
             'dari' => request('dari'),
-            'sampai' => request('dari'),
+            'sampai' => request('sampai'),
             'no_unit' => request('no_unit'),
             'harga' => request('harga'),
             'user_id' =>Auth::id(),

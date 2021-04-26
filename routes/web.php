@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\sewaController;
+use App\Http\Controllers\BayarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +24,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboardx', function () 
 
 Route::get('/dashboard',[PagesController::class, 'dashboard']);
 Route::resource('sewa', SewaController::class);
-Route::get('/dashboard/abc',[PagesController::class, 'dashboard']);
+Route::resource('pembayaran', BayarController::class);
+
 
 /*
+PS D:\PHP\webUTS> php artisan route:list
 +--------+-----------+----------------------------------+---------------------------------+---------------------------------------------------------------------------------+-----------------------------------------------------------+
 | Domain | Method    | URI                              | Name                            | Action                                                                          | Middleware                                                |
 +--------+-----------+----------------------------------+---------------------------------+---------------------------------------------------------------------------------+-----------------------------------------------------------+
@@ -52,6 +55,13 @@ Route::get('/dashboard/abc',[PagesController::class, 'dashboard']);
 |        |           |                                  |                                 |                                                                                 | App\Http\Middleware\RedirectIfAuthenticated               |
 |        |           |                                  |                                 |                                                                                 | Illuminate\Routing\Middleware\ThrottleRequests:login      |
 |        | POST      | logout                           | logout                          | Laravel\Fortify\Http\Controllers\AuthenticatedSessionController@destroy         | web                                                       |
+|        | GET|HEAD  | pembayaran                       | pembayaran.index                | App\Http\Controllers\BayarController@index                                      | web                                                       |
+|        | POST      | pembayaran                       | pembayaran.store                | App\Http\Controllers\BayarController@store                                      | web                                                       |
+|        | GET|HEAD  | pembayaran/create                | pembayaran.create               | App\Http\Controllers\BayarController@create                                     | web                                                       |
+|        | GET|HEAD  | pembayaran/{pembayaran}          | pembayaran.show                 | App\Http\Controllers\BayarController@show                                       | web                                                       |
+|        | PUT|PATCH | pembayaran/{pembayaran}          | pembayaran.update               | App\Http\Controllers\BayarController@update                                     | web                                                       |
+|        | DELETE    | pembayaran/{pembayaran}          | pembayaran.destroy              | App\Http\Controllers\BayarController@destroy                                    | web                                                       |
+|        | GET|HEAD  | pembayaran/{pembayaran}/edit     | pembayaran.edit                 | App\Http\Controllers\BayarController@edit                                       | web                                                       |
 |        | GET|HEAD  | register                         | register                        | Laravel\Fortify\Http\Controllers\RegisteredUserController@create                | web                                                       |
 |        |           |                                  |                                 |                                                                                 | App\Http\Middleware\RedirectIfAuthenticated               |
 |        | POST      | register                         |                                 | Laravel\Fortify\Http\Controllers\RegisteredUserController@store                 | web                                                       |
@@ -61,13 +71,13 @@ Route::get('/dashboard/abc',[PagesController::class, 'dashboard']);
 |        | GET|HEAD  | reset-password/{token}           | password.reset                  | Laravel\Fortify\Http\Controllers\NewPasswordController@create                   | web                                                       |
 |        |           |                                  |                                 |                                                                                 | App\Http\Middleware\RedirectIfAuthenticated               |
 |        | GET|HEAD  | sanctum/csrf-cookie              |                                 | Laravel\Sanctum\Http\Controllers\CsrfCookieController@show                      | web                                                       |
-|        | GET|HEAD  | sewa                             | sewa.index                      | App\Http\Controllers\PagesController@index                                      | web                                                       |
-|        | POST      | sewa                             | sewa.store                      | App\Http\Controllers\PagesController@store                                      | web                                                       |
-|        | GET|HEAD  | sewa/create                      | sewa.create                     | App\Http\Controllers\PagesController@create                                     | web                                                       |
-|        | GET|HEAD  | sewa/{sewa}                      | sewa.show                       | App\Http\Controllers\PagesController@show                                       | web                                                       |
-|        | PUT|PATCH | sewa/{sewa}                      | sewa.update                     | App\Http\Controllers\PagesController@update                                     | web                                                       |
-|        | DELETE    | sewa/{sewa}                      | sewa.destroy                    | App\Http\Controllers\PagesController@destroy                                    | web                                                       |
-|        | GET|HEAD  | sewa/{sewa}/edit                 | sewa.edit                       | App\Http\Controllers\PagesController@edit                                       | web                                                       |
+|        | GET|HEAD  | sewa                             | sewa.index                      | App\Http\Controllers\sewaController@index                                       | web                                                       |
+|        | POST      | sewa                             | sewa.store                      | App\Http\Controllers\sewaController@store                                       | web                                                       |
+|        | GET|HEAD  | sewa/create                      | sewa.create                     | App\Http\Controllers\sewaController@create                                      | web                                                       |
+|        | GET|HEAD  | sewa/{sewa}                      | sewa.show                       | App\Http\Controllers\sewaController@show                                        | web                                                       |
+|        | PUT|PATCH | sewa/{sewa}                      | sewa.update                     | App\Http\Controllers\sewaController@update                                      | web                                                       |
+|        | DELETE    | sewa/{sewa}                      | sewa.destroy                    | App\Http\Controllers\sewaController@destroy                                     | web                                                       |
+|        | GET|HEAD  | sewa/{sewa}/edit                 | sewa.edit                       | App\Http\Controllers\sewaController@edit                                        | web                                                       |
 |        | GET|HEAD  | two-factor-challenge             | two-factor.login                | Laravel\Fortify\Http\Controllers\TwoFactorAuthenticatedSessionController@create | web                                                       |
 |        |           |                                  |                                 |                                                                                 | App\Http\Middleware\RedirectIfAuthenticated               |
 |        | POST      | two-factor-challenge             |                                 | Laravel\Fortify\Http\Controllers\TwoFactorAuthenticatedSessionController@store  | web                                                       |
@@ -103,5 +113,3 @@ Route::get('/dashboard/abc',[PagesController::class, 'dashboard']);
 |        |           |                                  |                                 |                                                                                 | Illuminate\Auth\Middleware\RequirePassword                |
 +--------+-----------+----------------------------------+---------------------------------+---------------------------------------------------------------------------------+-----------------------------------------------------------+
 */
-
-
