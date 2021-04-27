@@ -30,7 +30,7 @@ class sewaController extends Controller
     public function create()
     {
         //
-        $title = 'data entry';
+        $title = 'daftarkan penyewa';
         return view('dashboard.create')->with('title', $title);
     }
 

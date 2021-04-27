@@ -39,14 +39,17 @@
                         <tbody>
                          @foreach($bayar as $Bayar)   
                             <tr>
-                                <td>{{$sewa[$Bayar->id_sewa - 1]->nama}}</td>
+                                <td title="{{$Bayar -> keterangan }}">{{$sewa[$Bayar->id_sewa - 1]->nama}}</td>
                                 <td>{{$sewa[$Bayar->id_sewa - 1]->no_unit}}</td>
                                 <td>{{$Bayar->bulan}} bulan</td>
                                 <td>Rp. {{ $sewa[$Bayar->id_sewa - 1]->harga * $Bayar->bulan}}</td>
                                 <td>{{$user[$Bayar->id_user - 1]->name}}</td>
                                 <td>{{$Bayar->created_at}}</td>
-                                
-                                <td><a class="badge rounded-pill bg-danger" href="">delete</a></td>
+                                <td><form name="delete" action="/pembayaran/{{ $Bayar->id }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                <button type="submit" class="rounded-pill bg-danger" name='delete'>Delete</button>
+                                </form></td>
                             </tr>
                          @endforeach   
                         </tbody>

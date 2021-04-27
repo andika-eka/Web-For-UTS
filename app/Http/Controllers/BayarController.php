@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\sewa;
 use App\Models\User;
 use App\Models\bayar;
+use Illuminate\Support\Facades\Auth;
 class BayarController extends Controller
 {
     /**
@@ -33,7 +34,8 @@ class BayarController extends Controller
      */
     public function create()
     {
-        //
+        $title = 'buat pembayaran';
+        return view('dashboard.pembayaran.create')->with('title', $title);
     }
 
     /**
@@ -45,6 +47,17 @@ class BayarController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request,[
+            'id_sewa' => 'required',
+            'bulan' => 'required'
+        ]);
+        bayar::create([
+            'id_sewa' => request('id_sewa'),
+            'bulan' => request('bulan'),  
+            'id_user' =>Auth::id(),
+            'keterangan' => request('keterangan'),
+        ]);
+        return redirect('/pembayaran')->with('success', 'data saved');
     }
 
     /**
@@ -90,5 +103,9 @@ class BayarController extends Controller
     public function destroy($id)
     {
         //
+        $data = bayar::find($id);       
+        $data-> delete();                 
+
+        return redirect('/pembayaran')->with('success', 'data deleted');
     }
 }

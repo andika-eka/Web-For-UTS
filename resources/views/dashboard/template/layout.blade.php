@@ -68,6 +68,10 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             daftar sewa
                         </a>
+                        <a class="nav-link" href="\pembayaran">
+                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                            history pembayaran
+                        </a>
 
                         <!-- <div class="sb-sidenav-menu-heading">Interface</div>
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts"
